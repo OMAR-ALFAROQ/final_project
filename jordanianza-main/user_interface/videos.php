@@ -16,8 +16,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             <ul>
                <li class="btn btn-outline-dark active video" data-filter="*">Video</li>
               </ul> -->
-              <div class="container text-center bg-warning mb-2">
-  VIDEO
+              <!-- <div class="container text-center  mb-2 mt-2">
+   <span class=""><h2 class="bg-dark text-light">VIDEO</h2></span> #EABF9F-->
+   <h1 class="page-header text-center m-5"> 
+     <span class="label label-primary text-light" style="background-color:black!important;
+opacity:0.7 ; border:1px solid white; border-radius:15px 0px;padding:10px;font-family:Cursive	;">VIDEOS
+     </h1>
+    </span>
+
 </div>
 
 <div class="row">

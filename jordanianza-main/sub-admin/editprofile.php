@@ -1,6 +1,7 @@
 <?php
 require_once 'template/header.php';
 require 'template/navbar.php'; 
+
 if(isset($_SESSION['id2'])) {
 $pageTitle = "Edit Profile";
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -13,6 +14,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   $email     = $_POST['email'];
   $Old_pass  = $_POST['Old_pass'];
   $New_pass  = $_POST['New_pass'];
+  $Address = $_POST['address'];
   $hash_pass = sha1($New_pass);
   $image_name = $_FILES['img']['name'];
   if($_POST['username'] != " "){
@@ -38,7 +40,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   if(!empty($New_pass)){
     if(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%*&]{8,}$/', $New_pass)){
       $_SESSION['username_subAdmin']  = $username;
-      update_info_profile($username,$email,$hash_pass,$id_user,$phone,$facebook,$instagram);
+      update_info_profile($username,$email,$hash_pass,$id_user,$phone,$facebook,$instagram, $Address);
     }else{
         echo '<div class="alert alert-danger alert-dismissible fade show  mt-5" role="alert">
         <strong>Password:</strong> <br>
@@ -54,7 +56,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
       
     }else{
          
-        update_info_profile($username,$email,$Old_pass,$id_user,$phone,$facebook,$instagram);
+        update_info_profile($username,$email,$Old_pass,$id_user,$phone,$facebook,$instagram, $Address);
       }
     }else{
       echo '<div class="alert alert-danger alert-dismissible fade show  mt-5" role="alert">
@@ -89,23 +91,28 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   </div>
   </div>
 <div class="form-row">
- <div class="form-group">
+ <div class="form-group ">
     <label for="inputname"><i class="far fa-user"></i> Username </label>
     <input type="hidden"  name="id"  value="<?php echo $val['id']?>">
     <input type="text" class="form-control" name="username"  id="inputname" placeholder="Enter your name" value="<?php echo $val['username']?>">
   </div>
   <div class="form-group">
+    <label for="inputname"><i class="fas fa-map-marked"></i> Address </label>
+    <input type="hidden"  name="id"  value="<?php echo $val['id']?>">
+    <input type="text" class="form-control" name="address"  id="inputname" placeholder="City-Country" value="<?php echo $val['address']?>">
+  </div>
+  <div class="form-group">
     <label for="phone"><i class="fas fa-phone"></i> Phone </label>
     <input type="hidden"  name="id"  value="<?php echo $val['id']?>">
-    <input type="text" class="form-control" name="phone"  id="inputname" placeholder="00-0000-0000" value="<?php echo $val['phone']?>">
+    <input type="text" class="form-control" name="phone"  id="inputname" placeholder="+00-0000-0000" value="<?php echo $val['phone']?>">
   </div>
   <div class="form-group">
     <label for="facebook"><i class="fab fa-facebook"></i> Facebook </label>
-    <input type="text" class="form-control" name="facebook"  id="facebook" placeholder="Enter your URl Facebook" value="<?php echo $val['facebook']?>">
+    <input type="text" class="form-control" name="facebook"  id="facebook" placeholder="Enter your Facebook UserName" value="<?php echo $val['facebook']?>">
   </div>
   <div class="form-group">
-    <label for="instagram"><i class="fab fa-instagram"></i>Instagram </label>
-    <input type="text" class="form-control" name="instagram"  id="instagram" placeholder="Enter your URL Instagram" value="<?php echo $val['instagram']?>">
+    <label for="instagram"><i class="fab fa-instagram"></i> Instagram </label>
+    <input type="text" class="form-control" name="instagram"  id="instagram" placeholder="Enter your Instagram UserName" value="<?php echo $val['instagram']?>">
   </div>
 </div>
   <div class="form-row">
@@ -132,7 +139,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   </div>
    <div class="d-flex justify-content-center pb-5"> 
   <button type="submit" class="btn btn-primary m-1 " name="submit">Update Profile </button>
-  <button type="button" class="btn btn-secondary m-1" >Close </button>
+  <a href="index.php"><button type="button" class="btn btn-secondary m-1" >Close </button></a>
   </div>
 </form>
 

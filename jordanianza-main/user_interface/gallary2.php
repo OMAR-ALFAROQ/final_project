@@ -46,7 +46,7 @@ if($cate_result->num_rows >0 ) {  ?>
          <div class="portfolio-menu mt-2 mb-4">
            
          <ul>
-              <li class="btn btn-outline-warning active" data-filter="*">All</li>
+              <li class="btn btn-outline-dark active" data-filter="*">All</li>
             
             
             <?php 
@@ -54,7 +54,7 @@ while($cate_row = $cate_result->fetch_assoc()) {
   if($cate_row['name']!="") { 
 
 ?>
-    <li class="btn btn-outline-warning" data-filter=".<?= $cate_row['name']; ?>"><?= $cate_row['name']; ?></li>
+    <li class="btn btn-outline-dark " data-filter=".<?= $cate_row['name']; ?>"><?= $cate_row['name']; ?></li>
 
     <?php }} ?>
     </ul>

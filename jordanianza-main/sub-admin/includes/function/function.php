@@ -215,9 +215,9 @@ echo"<div class='alert alert-warning' role='alert'>
   }
 }
 
-function update_info_profile($username,$email,$pass,$id,$phon,$fas,$inast){
+function update_info_profile($username,$email,$pass,$id,$phon,$fas,$inast, $address){
   global $conn;
-  $sql = "UPDATE sub_admin SET username='$username',email='$email',password='$pass',phone='$phon',facebook='$fas',instagram='$inast' WHERE id='$id'";
+  $sql = "UPDATE sub_admin SET username='$username',email='$email',password='$pass',phone='$phon',facebook='$fas',instagram='$inast', address='$address' WHERE id='$id'";
 
 if (mysqli_query($conn, $sql)) {
   echo "<div class='alert alert-warning' role='alert'>

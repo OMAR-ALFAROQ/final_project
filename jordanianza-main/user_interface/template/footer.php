@@ -20,9 +20,9 @@
             <i class="fas fa-gem me-3"></i>Jordanianza
           </h6>
           <p>
-            first jordanian website to help and support small bussniss and 
+            First jordanian website to help and support small bussniss and 
             freelancers.<br>
-           <h6> made with the jordanian pride ❤️</h6>
+           <h6> Made with the jordanian pride ❤️</h6>
           </p>
         </div>
         <!-- Grid column -->
@@ -34,13 +34,13 @@
             our services:
           </h6>
           <p>
-            <a href="#!" class="text-reset">Makeup Artist</a>
+            <a href="#" class="text-reset">Makeup Artist</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Photography</a>
+            <a href="#" class="text-reset">Photography</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Websites</a>
+            <a href="#" class="text-reset">Designers</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -81,15 +81,15 @@
           <span>keep yourself in touch</span>
         </div>
           <div >
-          <a href="" class="me-4 p-1 text-reset">
+          <a href="#" class="me-4 p-1 text-reset">
             <i class="fab fa-facebook-f"></i>
           </a>
           
-          <a href="" class="me-4 p-1 text-reset">
+          <a href="#" class="me-4 p-1 text-reset">
             <i class="fab fa-google"></i>
           </a>
           
-          <a href="" class="me-4 p-1 text-reset">
+          <a href="#" class="me-4 p-1 text-reset">
             <i class="fab fa-linkedin"></i>
           </a>
        
@@ -105,7 +105,7 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Jordanianiza</a>
+    <a class="text-reset fw-bold" href="#">Jordanianiza</a>
   </div>
   <!-- Copyright -->
 </footer>

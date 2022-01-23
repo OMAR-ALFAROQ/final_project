@@ -1,49 +1,69 @@
 <?php 
-require "template/header.php";
+include_once("../admin/config.php");
+include_once ("template/header.php");
 $navbarTrans = false;
-require "template/navbar.php";?>
-
-<div class="container">
-    
-	<div class="row">
-<?php
-$name_category =isset($_GET['name_category']) && is_string($_GET['name_category'])? strval( $_GET['name_category']):0;
- $array =getSubAdmin($conn,$name_category);
- if(isset($array)){
-  foreach(getSubAdmin($conn,$name_category) as $val){
+include_once ("template/navbar.php");
 ?>
-		<div class="col-md-4">
-            <a href='subAdmin_profile.php?id=<?=$val['id']; ?>'>
-    <div class="profile-card-2" >
-       <?php if(isset($val['profile_pic'])){
-             echo' <img src="../sub-admin/images/'.$val['profile_pic'].'" class="img img-responsive w-100 " >';
-       }else if($name_category == "makeup artists"){ 
-      
-        echo'<img src="img/fashion.jpg" class="img img-responsive w-100 ">';
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="themes/CSS/sop.css" rel="stylesheet">
+<!-- <link href="themes/CSS/boot.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-       }else if($name_category == "photographers"){
-        echo'<img src="img/camera3.jpg" class="img img-responsive w-100 ">';
-       }else if($name_category == "designers"){
-        echo'<img src="img/design.jpg" class="img img-responsive w-100 ">';
-       }
-       ?> 
-       
-       <!-- <img src="img/camera2.jpg" class="img img-responsive w-100 "> -->
-        <div class="profile-name"><?php echo $val['username']; ?></div>
-        <div class="profile-username"><?php echo $val['email']; ?></div>
-        <div class="profile-email"><?php echo $val['name']; ?></div>
-        <div class="profile-icons"><a href="http://www.facebook.com/<?= $val['facebook']; ?>"><i class="fa fa-facebook"></i></a><a href="http://www.instagram.com/<?= $val['instagram']; ?>"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
-        
+</head>
+<body>
+    
+<?php
+
+if (isset($_GET['showAll'])) {
+    $cat = $_GET['showAll'];
+
+$stmt = "SELECT id,name FROM category WHERE name LIKE '%$cat%'";
+
+$resultset1 = mysqli_query($conn, $stmt) or die("database error:". mysqli_error($conn));
+
+while($recordCate = mysqli_fetch_assoc($resultset1)){
+    $cate_id = $recordCate['id'];
+    $cate_name = $recordCate['name']; ?>
+    <div class="container">
+    <h1 class="page-header text-center m-5"> <span class="label label-primary" style="background-color: #EABF9F!important;border:1px solid white; border-radius:15px 0px;padding:10px;"> <?php echo $cate_name; ?> </h1></span>
+	<div class="row">
+    <?php
+
+	$sql = "SELECT id, username, email, address, profile_pic, facebook, instagram, cate_id  FROM sub_admin WHERE cate_id = $cate_id ";
+    $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+            
+	while( $record = mysqli_fetch_assoc($resultset) ) { ?>
+
+		<div class="col-md-4 call">
+            <a href="subAdmin_profile.php?id=<?php echo $record['id'];?>"><div class="profile-card-2">
+
+                <?php if (!empty($record['profile_pic'] )) { 
+                  echo'  <img src="../sub-admin/images/'. $record['profile_pic'] . ' " class="img-responsive w-100 h-100">';}
+                    else { 
+                       echo' <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="img img-responsive ">';}
+                          ?>
+                    <div class="profile-name"><?php echo $record['username']; ?></div>
+                    <div class="profile-username"><?php echo $record['email']; ?></div>
+                    <div class="profile-email"><?php echo $cate_name; ?></div>
+                    <div class="profile-icons"><a class="text-white" href="<?php echo $record['facebook']; ?>"><i class="fa fa-facebook"></i></a><a class="text-white" href="<?php echo $record['instagram']; ?> "><i class="fa fa-instagram"></i></a>
+                    </div>
+            </div></a>
+        </div>
+    <?php } ?>
     </div>
-    </a>
 </div>
+<?php }
 
-<?php } }else{
-     echo' <div class="alert alert-warning  " role="alert">
-      0 result .
-     </div>';
-      }
-      ?>
-</div>
-</div>
+}
+// else {
+//      header("Location: ../dashboard.php");
+//      exit;
+// }
+?>
+</body>
 <?php require 'template/footer.php'?>

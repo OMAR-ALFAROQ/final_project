@@ -32,17 +32,17 @@
     <ul class="navbar-nav ">
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-        
       </li>
    
-    <?php foreach (getCategory($conn) as $val){
-       $_SESSION[$val['name']] = $val['name'];
+    <!-- <?php
+       $result = mysqli_query($conn,"SELECT * FROM category ORDER BY 'ASC'");
+while ($record = mysqli_fetch_assoc($result) ) {
       ?>
        
       <li class="nav-item">
-        <a class="nav-link" href="#<?php echo $val['name']?>"><?php echo $val['name']?></a>
+        <a class="nav-link" href="#<?php echo $record['name']?>"><?php echo $record['name']?></a>
   </li>
-  <?php }?>
+  <?php }?> -->
 
 
 
@@ -54,7 +54,7 @@
       </li>
            
       <li class="nav-item">
-        <a class="nav-link" href="../aboutas/index.html">About AS</a>
+        <a class="nav-link" href="../aboutas/index.html">About us</a>
   </li>
    <?php }else{?>
       <li class="nav-item dropdown mr-5">

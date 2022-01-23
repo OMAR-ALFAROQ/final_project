@@ -31,6 +31,7 @@ include("../config.php");
                     <tr>
 						<th>#</th>
 						<th><b>NAME</b></th>
+						<th><b>Category Image</b></th>
                         <th><b>ACTION</b></th>
                     </tr>
                 </thead>
@@ -97,6 +98,11 @@ include("../config.php");
 				<tr id="<?php echo $row["id"]; ?>">
 					<td><?php echo $i; ?></td>
 					<td><?php echo $row["name"]; ?></td>
+					<td>
+						<div class="cate_img">
+						<a href="<?php echo $row["image"]; ?>"><img src="<?php echo $row["image"]; ?>"></a>
+					</div>
+					</td>
 					<td>
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 

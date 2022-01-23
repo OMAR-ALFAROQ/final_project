@@ -23,12 +23,7 @@ $subAdmin = getSubAdminInfo($conn, $id);
 
 <div class="box ">
   <div id="overlay">
-    <div  style='
-     background:
-      url("images/<?= $subAdmin['profile_pic'];?>")
-     center center no-repeat;
-     background-size: cover;'
-     class="image">
+    <div  style='background:url("../sub-admin/images/<?= $subAdmin['profile_pic'];?>") center center no-repeat; background-size: cover;'class="image">
       <div class="trick">
 
       </div>
@@ -77,45 +72,45 @@ $subAdmin = getSubAdminInfo($conn, $id);
     </h4>
   </div>
   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-    <div class="panel-body">
+    <div class="panel-body text-center">
 
    <!-- Social info START -->
    
   
                           <!-- EMAIL  -->
                           
-                          <?php if($subAdmin['email']!==""){ ?>
+                          <!-- <?php if($subAdmin['email']!==""){ ?> -->
                            
-                      <a class="btn btn-danger btn-sm"  target="_blank" rel="publisher"
-                       href="https://mail.google.com/<?= $subAdmin['email']; ?>">
+                      <a class="btn btn-danger btn-sm "  target="_blank" rel="publisher"
+                       href="mailto:<?=$subAdmin['email']?>">
                         <i class="fa fa-google"></i>
 
-                         <small><?= $subAdmin['email']; ?></small>
+                         <!-- <small><?= $subAdmin['email']; ?></small> -->
                     </a>
                     
                     <?php } ?>
                     
 
                            <!-- FACEBOOK  -->
-                           <?php if($subAdmin['facebook']!==""){ ?>
+                           <!-- <?php if($subAdmin['facebook']!==""){ ?> -->
                             
 
                         
                     <a class="btn btn-primary btn-sm" rel="publisher" target="_blank"
                        href="http://www.facebook.com/<?= $subAdmin['facebook']; ?>">
                         <i class="fa fa-facebook"></i>
-                        <small><?= $subAdmin['facebook']; ?> </small>
+                        <!-- <small><?= $subAdmin['facebook']; ?> </small> -->
                     </a>
                     
                     <?php } ?>
 
                            <!-- INSTAGRAM  -->
-                           <?php if($subAdmin['instagram']!==""){ ?>
+                           <!-- <?php if($subAdmin['instagram']!==""){ ?> -->
                             
                      <a class="btn btn-warning btn-sm" rel="publisher" target="_blank"
                        href="http://www.instagram.com/<?= $subAdmin['instagram']; ?>">
                         <i class="fa fa-instagram"></i>
-                        <small><?= $subAdmin['instagram']; ?></small>
+                        <!-- <small><?= $subAdmin['instagram']; ?></small> -->
                     </a>
                
                     <?php } ?>

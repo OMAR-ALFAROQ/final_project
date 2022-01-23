@@ -374,7 +374,7 @@ small {
   padding: 1.7rem 1.2rem;
   border: none;
   border-radius: 0;
-  color: black;
+  color: rgb(214, 93, 103);
   letter-spacing: 0.05rem;
   font-family: "Oswald", sans-serif;
   box-shadow: 0 0 21px rgba(0, 0, 0, 0.27);
@@ -393,12 +393,12 @@ small {
   letter-spacing: 0rem;
   margin-top: 33px;
   opacity: 0;
-  color: white;
+  color: rgb(214, 93, 103);
 }
 .card a {
   z-index: 3;
   font-size: 0.7rem;
-  color: black;
+  color: rgb(214, 93, 103);
   margin-left: 1rem;
   position: relative;
   bottom: -0.5rem;

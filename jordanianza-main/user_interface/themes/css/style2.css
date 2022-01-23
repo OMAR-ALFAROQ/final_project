@@ -112,7 +112,7 @@ body {
   margin-top: 9px;
   background-color: transparent;
   color: #000;
-  border-color: #000;
+  border-color: #000 !important;
   padding: auto;
   padding: 10px 0px 10px 0px;
   margin: 1px 5px 1px 0px;
@@ -257,5 +257,7 @@ textarea:hover {
 }
 
 .btn-danger:hover {
-  background-color: #EABF9F !important;
+  background-color: black !important;
+  border-color: black !important;
+opacity: 0.7;
 }
